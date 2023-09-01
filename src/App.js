@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "./components/Layout/Header";
 import Sushi from "./components/Sushi/Sushi";
 import Cart from "./components/Cart/Cart";
-
+import CartProvider from "./store/cartProvider";
 
 const App = () => {
 
@@ -18,13 +18,13 @@ const App = () => {
   };
 
   return (
-    <>
+    <CartProvider>
       {cartIsShown && <Cart onClose={hideCartHandler} />}
       <Header onShowCart={showCartHandler} />
       <main>
         <Sushi />
       </main>
-    </>
+    </CartProvider>
   );
 }
 
